@@ -1,0 +1,2 @@
+# TailscaleScript
+Base Tailscale Setup
