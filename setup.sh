@@ -14,7 +14,7 @@ echo "curl -fsSL https://tailscale.com/install.sh | sh" > ~/install.sh
 chmod +x install.sh
 
 echo "Configuring Tailscale up script"
-echo "sudo tailscale up --advertise-routes=192.168.1.0/24 #replace with proper subnet" > /up.sh
+echo "sudo tailscale up --advertise-routes=192.168.1.0/24 #replace with proper subnet" > ~/up.sh
 chmod +x up.sh
 
 echo "Setting hostname"
@@ -35,6 +35,6 @@ sudo sed -i 's/^GRUB_TIMEOUT_STYLE=.*$/GRUB_TIMEOUT_STYLE=hidden/g' /etc/default
 sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*$/GRUB_CMDLINE_LINUX_DEFAULT=\"consoleblank=300\"/g' /etc/default/grub
 
 echo "Updating grub"
-update-grub
+sudo update-grub
 
 echo "Done"
