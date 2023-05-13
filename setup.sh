@@ -9,12 +9,11 @@ echo -e "net.ipv4.ip_forward = 1\nnet.ipv6.conf.all.forwarding = 1" | sudo tee /
 echo "Enabling UFW and SSH access"
 sudo ufw allow ssh && sudo ufw enable
 
-echo "Configuring Tailscale install script"
-echo "curl -fsSL https://tailscale.com/install.sh | sh" > ~/install.sh
-chmod +x install.sh
+echo "Downloading and installing Tailscale"
+curl -fsSL https://tailscale.com/install.sh | sh
 
 echo "Configuring Tailscale up script"
-echo "sudo tailscale up --advertise-routes=192.168.1.0/24 #replace with proper subnet" > ~/up.sh
+echo "sudo tailscale up --advertise-routes=192.168.1.0/24 #replace with proper subnet" > up.sh
 chmod +x up.sh
 
 echo "Setting hostname"
@@ -37,4 +36,4 @@ sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*$/GRUB_CMDLINE_LINUX_DEFAULT=\"cons
 echo "Updating grub"
 sudo update-grub
 
-echo "Done"
+echo "Finished setup - consider rebooting."
